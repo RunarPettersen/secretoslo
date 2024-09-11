@@ -28,7 +28,7 @@ const fetchDestinationDetails = async () => {
 const displayDestinationDetails = (destination) => {
     const detailSection = document.getElementById('destinationDetails');
     detailSection.innerHTML = `
-        <img src="${destination.image}" alt="${destination.title}" class="destination-image">
+        <img src="../${destination.image}" alt="${destination.title}" class="destination-image">
         <p><strong>${destination.introduction}</strong></p>
         <div class="description">${destination.description}</div>
         <p><strong>Location:</strong> ${destination.where}</p>
@@ -54,7 +54,7 @@ const displayGalleryImages = (path, filenames) => {
     if (imageFilenames && imageFilenames.length > 0) {
         imageFilenames.forEach((filename, index) => {
             const imgElement = document.createElement('img');
-            imgElement.src = `${galleryPath}/${filename}`; // Correctly construct the image path
+            imgElement.src = `../${galleryPath}/${filename}`; // Correctly construct the image path
             imgElement.alt = "Gallery Image";
             imgElement.className = 'gallery-image';
 
@@ -78,7 +78,7 @@ const openLightbox = (index) => {
 // Function to update the image in the lightbox
 const updateLightboxImage = () => {
     const lightboxImg = document.getElementById('lightbox').querySelector('img');
-    lightboxImg.src = `${galleryPath}/${imageFilenames[currentImageIndex]}`; // Correctly construct the image path for lightbox
+    lightboxImg.src = `../${galleryPath}/${imageFilenames[currentImageIndex]}`; // Correctly construct the image path for lightbox
 };
 
 // Function to close the lightbox
@@ -124,14 +124,44 @@ const isFavorite = (id) => {
     return favorites.some(fav => fav.id === id);
 };
 
+const displayMessage = (message, type = 'success') => {
+    const container = document.getElementById('notification-container');
+
+    // Create the notification element
+    const notification = document.createElement('div');
+    notification.className = `notification ${type}`;
+    notification.textContent = message;
+
+    // Create a close button for the notification
+    const closeBtn = document.createElement('span');
+    closeBtn.className = 'close-btn';
+    closeBtn.textContent = '×';
+    closeBtn.addEventListener('click', () => {
+        container.removeChild(notification);
+    });
+
+    // Append the close button to the notification
+    notification.appendChild(closeBtn);
+
+    // Append the notification to the container
+    container.appendChild(notification);
+
+    // Automatically remove the notification after 3 seconds
+    setTimeout(() => {
+        if (container.contains(notification)) {
+            container.removeChild(notification);
+        }
+    }, 3000);
+};
+
 const toggleFavorite = (destination) => {
     let favorites = JSON.parse(localStorage.getItem('favorites')) || [];
     if (isFavorite(destination.id)) {
         favorites = favorites.filter(fav => fav.id !== destination.id);
-        alert('Removed from Favorites');
+        displayMessage('Removed from Favorites', 'error');
     } else {
         favorites.push(destination);
-        alert('Added to Favorites');
+        displayMessage('Added to Favorites', 'success');
     }
     localStorage.setItem('favorites', JSON.stringify(favorites));
     document.getElementById('favorite-btn').textContent = isFavorite(destination.id) ? 'Remove from Favorites' : 'Add to Favorites';

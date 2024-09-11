@@ -1,6 +1,3 @@
-import { displayMessage } from './weather.js'; // Adjust the path if needed
-
-// Fetch places data and display them
 export const fetchPlaces = async () => {
     try {
         const response = await fetch('json/places.json'); // Update the path if necessary
@@ -8,7 +5,8 @@ export const fetchPlaces = async () => {
             throw new Error('Failed to fetch places data. Please try again later.');
         }
         const places = await response.json();
-        displayPlaces(places);
+        displayPlaces(places, 'restaurant', '.restaurants-section'); // Display restaurants
+        displayPlaces(places, 'monument', '.monuments-section'); // Display monuments
     } catch (error) {
         console.error('Error fetching places:', error);
         displayMessage('Failed to load places. Please check your internet connection and try again.', 'error');
@@ -16,14 +14,14 @@ export const fetchPlaces = async () => {
 };
 
 // Function to display places in the grid
-export const displayPlaces = (places) => {
-    const placesSection = document.querySelector('.places-section');
+export const displayPlaces = (places, category, sectionSelector) => {
+    const placesSection = document.querySelector(sectionSelector);
 
-    // Filter to get only the restaurant category
-    const restaurantPlaces = places.filter(place => place.category.toLowerCase() === 'restaurant');
+    // Filter to get only the places of the specified category
+    const filteredPlaces = places.filter(place => place.category.toLowerCase() === category.toLowerCase());
 
     // Limit to first 3 places and add a "See More" button as the fourth item
-    const placesToShow = restaurantPlaces.slice(0, 3);
+    const placesToShow = filteredPlaces.slice(0, 3);
 
     // Create grid items for the first three places
     placesToShow.forEach(place => {

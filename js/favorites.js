@@ -13,7 +13,7 @@ const displayFavorites = () => {
         favoriteElement.className = 'favorite-item';
         favoriteElement.innerHTML = `
             <h3>${favorite.title}</h3>
-            <img src="${favorite.image}" alt="${favorite.title}" class="favorite-image">
+            <img src="../${favorite.image}" alt="${favorite.title}" class="favorite-image">
             <p>${favorite.introduction}</p>
             <button class="details-btn" onclick="location.href='detail.html?id=${favorite.id}'">View Details</button>
             <button class="remove-btn" onclick="removeFavorite(${favorite.id})">Remove</button>

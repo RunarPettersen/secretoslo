@@ -1,4 +1,3 @@
-// Fetch data from the JSON file and display it in the grid
 const fetchDestinations = async () => {
     try {
         const response = await fetch('../json/places.json');
@@ -6,7 +5,15 @@ const fetchDestinations = async () => {
             throw new Error('Failed to fetch destinations data.');
         }
         const destinations = await response.json();
+        // Display all destinations initially
         displayDestinations(destinations);
+
+        // Set up event listener for category filter
+        const categorySelect = document.getElementById('categorySelect');
+        categorySelect.addEventListener('change', () => {
+            const selectedCategory = categorySelect.value;
+            filterDestinations(destinations, selectedCategory);
+        });
     } catch (error) {
         console.error('Error fetching destinations:', error);
     }
@@ -20,7 +27,7 @@ const displayDestinations = (destinations) => {
         const destinationCard = document.createElement('div');
         destinationCard.className = 'destination-card';
         destinationCard.innerHTML = `
-            <img src="${destination.image}" alt="${destination.title}" class="destination-image">
+            <img src="../${destination.image}" alt="${destination.title}" class="destination-image">
             <h2>${destination.title}</h2>
             <p>${destination.introduction}</p>
             <button class="details-btn" data-id="${destination.id}">View Details</button>
@@ -39,4 +46,17 @@ const displayDestinations = (destinations) => {
     });
 };
 
+// Filter destinations by category
+const filterDestinations = (destinations, category) => {
+    if (category === 'all') {
+        // Show all destinations if 'all' is selected
+        displayDestinations(destinations);
+    } else {
+        // Filter destinations by the selected category
+        const filteredDestinations = destinations.filter(destination => destination.category.toLowerCase() === category.toLowerCase());
+        displayDestinations(filteredDestinations);
+    }
+};
+
 document.addEventListener('DOMContentLoaded', fetchDestinations);
+
