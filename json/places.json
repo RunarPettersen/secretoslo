@@ -7,7 +7,7 @@
         "where": "You can find the Carousel of Love in Stensparken in Oslo, next to Fagerborg Church.",
         "address": "Sporveisgata, 0354 Oslo",
         "category": "monuments",
-        "image": "../images/thecarouseloflove/thecarouseloflove01.jpg",
+        "image": "./images/thecarouseloflove/thecarouseloflove01.jpg",
         "galleryPath": "../images/thecarouseloflove",
         "galleryImages": ["thecarouseloflove01.jpg", "thecarouseloflove02.jpg", "thecarouseloflove03.jpg", "thecarouseloflove04.jpg"],
         "tags": ["local history", "design"],
