@@ -1,15 +1,464 @@
-@import url('https://fonts.googleapis.com/css2?family=Skranji:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+:root {
+    --backround-color: #000;
+    --font-color: #000;
+}
 
 body {
-    background-color: #1b0092;
-    color: white;
-    font-family: "Skranji", system-ui;
+    background: linear-gradient(45deg, white, #666, white, #666, white);
+    color: var(--font-color);
+    font-family: "Poppins", sans-serif;
     font-weight: 400;
     font-style: normal;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    min-height: 100vh;
+}
+
+Main {
+    background-color: #fff;
+}
+main container {
+    display: flex;
+    align-items: center
+}
+
+/* Header */
+header {
+    width: 100%;
+    background-color: white;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    box-shadow: 0 4px 2px -2px gray;
+    z-index: 999;
+}
+
+header nav {
+    width: 100%;
+    display: flex;
+
+}
+
+header .logo {
+    width: 200px;
+    padding-top: 20px;
+    padding-inline-start: 10px;
+}
+
+.container {
+    width: 100%;
+    max-width: 1000px;
+    display: flex;
+    flex-direction: column;
+}
+
+.nav-links {
+    list-style: none;
+    padding-inline-start: 10px;
+}
+
+.nav-links ul {
+    margin: 0;
+}
+
+.nav-links li {
+    display: inline-block;
+}
+
+.nav-links a {
+    color: var(--font-color);
+    text-decoration: none;
+    font-size: 18px;
+    padding-right: 20px;
+}
+
+/* Times Section */
+section.times {
+    width: 100%;
+    margin-bottom: 20px;
+    color: #000;
 }
 
 section.times div {
     display: flex;
     flex-direction: column;
     align-items: center;
+    padding: 10px 20px;
+}
+
+section.times h2 {
+    font-size: 2rem;
+    margin-right: 5px;
+    font-weight: 700;
+}
+
+section.times output {
+    font-size: 2rem;
+    font-weight: 700;
+}
+
+/* Weather Section */
+.weather-section {
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+.weather-content {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.weather-container {
+    display: flex;
+}
+
+.weather-section h3 {
+    font-size: 1.8rem;
+    margin-bottom: 10px;
+    color: #000;
+}
+
+.weather-section p {
+    margin: 5px 0;
+    font-size: 1rem;
+}
+
+.weather-section img {
+    width: 150px;
+    height: 150px;
+}
+
+/* Places Section */
+.places-section {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 20px;
+    padding: 20px;
+    width: 100%;
+    max-width: 1000px;
+}
+
+.place-item {
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    padding: 15px;
+    text-align: center;
+    transition: transform 0.3s;
+}
+
+.place-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.9);
+}
+
+.place-item h2 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+}
+
+.place-image {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+.message {
+    position: fixed;
+    top: 10px;
+    right: 10px;
+    padding: 10px 20px;
+    background-color: #ff4f4f;
+    color: white;
+    border-radius: 4px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+}
+
+.message.error {
+    background-color: #ff4f4f;
+}
+
+.expand-btn {
+    background-color: #444;
+    color: #fff;
+    border: none;
+    padding: 5px 10px;
+    margin-top: 5px;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+}
+
+.expand-btn:hover {
+    background-color: #666;
+}
+
+.see-more {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #f0f0f0;
+    cursor: pointer;
+}
+
+.see-more-btn {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.see-more-btn:hover {
+    background-color: #0056b3;
+}
+
+.restaurants h2 {
+    padding-inline-start: 30px;
+    margin: 0;
+    font-size: 2rem;
+    font-weight: 800;
+}
+
+/* History */
+
+.history {
+    width: 100%;
+    max-width: 1000px;
+    color: #000;
+}
+
+.history h2, h1 {
+    padding: 0 10px;
+}
+
+/* Discover */
+
+.destinations-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 20px;
+    padding: 20px;
+    width: 100%;
+    max-width: 1000px;
+}
+
+.destination-card {
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    text-align: center;
+    transition: transform 0.3s;
+}
+
+.destination-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.9);
+}
+
+.destination-image {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+}
+
+h2 {
+    margin: 10px 0;
+    font-size: 1.2rem;
+}
+
+p {
+    padding: 0 10px;
+    font-size: 0.9rem;
+    color: #555;
+}
+
+.details-btn {
+    margin: 10px;
+    padding: 8px 16px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.details-btn:hover {
+    background-color: #0056b3;
+}
+
+/* Details */
+
+.destination-details {
+    width: 100%;
+    max-width: 1000px;
+}
+
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+    gap: 10px;
+    margin-top: 20px;
+    padding: 10px;
+}
+
+.gallery-image {
+    width: 100%;
+    height: auto;
+    border-radius: 5px;
+    object-fit: cover;
+    transition: transform 0.2s;
+    cursor: pointer;
+}
+
+.gallery-image:hover {
+    transform: scale(1.05);
+}
+
+/* Lightbox overlay */
+.lightbox {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    align-items: center;
+    justify-content: center;
+}
+
+/* Lightbox content (image) */
+.lightbox img {
+    max-width: 90%;
+    max-height: 90%;
+    border-radius: 8px;
+}
+
+/* Close button */
+.lightbox .close {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    color: white;
+    font-size: 35px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+/* Navigation buttons */
+.nav-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    border: none;
+    color: white;
+    font-size: 30px;
+    cursor: pointer;
+    padding: 10px;
+    border-radius: 50%;
+    z-index: 1001;
+}
+
+.prev-btn {
+    left: 30px;
+}
+
+.next-btn {
+    right: 30px;
+}
+
+.nav-btn:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+
+/* Favorites */
+
+.favorites-section {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 20px;
+    padding: 20px;
+    width: 100%;
+    max-width: 1000px;
+}
+
+.favorite-item {
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    padding: 15px;
+    text-align: center;
+    transition: transform 0.3s;
+}
+
+.favorite-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.9);
+}
+
+.favorite-image {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-bottom: 10px;
+}
+
+h3 {
+    margin: 10px 0;
+    font-size: 1.2rem;
+    color: #333;
+}
+
+p {
+    color: #555;
+    font-size: 0.9rem;
+    margin: 10px 0;
+}
+
+.details-btn {
+    padding: 8px 16px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.details-btn:hover {
+    background-color: #0056b3;
+}
+
+.remove-btn {
+    padding: 8px 16px;
+    background-color: #dc3545; /* Red color for remove action */
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-top: 10px;
+    transition: background-color 0.3s;
+}
+
+.remove-btn:hover {
+    background-color: #c82333; /* Darker red on hover */
 }

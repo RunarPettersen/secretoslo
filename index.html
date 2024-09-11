@@ -3,18 +3,44 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Secret Oslo</title>
     <link rel="stylesheet" href="css/style.css">
+    <script src="https://moment.github.io/luxon/global/luxon.min.js"></script>
 </head>
 <body>
-    <section class="times">
-        <div data-timezone="Europe/Oslo">
-            <h1>Oslo</h1>
-            <output>00:00:00</output>
+    <header>
+        <div class="container">
+            <nav>
+                <img class="logo" src="images/logo/secretoslologo.png">
+            </nav>
+            <ul class="nav-links">
+                <li><a href="./">Home</a></li>
+                <li><a href="history/">History</a></li>
+                <li><a href="discover/">Discover</a></li>
+                <li><a href="discover/favorites.html">Favorites</a></li>
+            </ul>
         </div>
-    </section>
+    </header>
+    <main>
+        <container>
+            <section class="weather-section">
+            </section>
+            <section class="times">
+                <div data-timezone="Europe/Oslo">
+                    <h2>Oslo Time:</h2>
+                    <output>00:00:00</output>
+                </div>
+            </section>
+        </container>
+        <div class="restaurants">
+            <h2>Where to eat:</h2>
+            <section class="places-section">
+                <!-- Places will be displayed here -->
+            </section>
+        </div>
+    </main>
 
-    <script src="https://moment.github.io/luxon/global/luxon.min.js"></script>
-    <script src="js/script.js"></script>
+    <script type="module" src="js/script.js"></script>
+    <script src="js/utils/clock.js"></script>
 </body>
 </html>

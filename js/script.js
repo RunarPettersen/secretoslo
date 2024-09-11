@@ -1,20 +1,18 @@
-const locations = document.querySelectorAll("section.times div")
+import { fetchWeatherData, displayWeather } from './utils/weather.js';
+import { fetchPlaces } from './utils/places.js'; // Import the fetchPlaces function
 
-const updateTimes = function () {
-    locations.forEach(location => {
-        const output = location.querySelector("output")
-        const timezone = location.getAttribute("data-timezone")
+const initApp = async () => {
+    try {
+        // Fetch weather data for Oslo, Norway
+        const weatherData = await fetchWeatherData('Oslo');
+        displayWeather(weatherData);
 
-        const now = luxon.DateTime.now().setZone(timezone)
+        // Fetch places data
+        await fetchPlaces();
+    } catch (error) {
+        console.error('Error initializing app:', error);
+        displayMessage('An error occurred while loading the app. Please try again later.', 'error');
+    }
+};
 
-        output.innerHTML = now.toFormat("HH:mm:ss")
-
-        const hour = parseInt(now.toFormat("H"))
-    })
-}
-
-updateTimes()
-
-setInterval(function () {
-    updateTimes()
-}, 1000)
+document.addEventListener('DOMContentLoaded', initApp);
