@@ -15,4 +15,5 @@ const initApp = async () => {
     }
 };
 
+// Initialize the app
 document.addEventListener('DOMContentLoaded', initApp);

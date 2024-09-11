@@ -10,8 +10,14 @@
 <body>
     <header>
         <div class="container">
-            <nav>
-                <img class="logo" src="images/logo/secretoslologo.png">
+            <nav class="nav-bar">
+                <img class="logo" src="images/logo/secretoslologo.png" alt="Secret Oslo Logo">
+                
+                <!-- Search Bar -->
+                <form id="searchForm" class="search-form" action="search-results.html" method="get">
+                    <input type="text" id="searchInput" class="search-input" name="query" placeholder="Search...">
+                    <button type="submit" class="search-button">Search</button>
+                </form>
             </nav>
             <ul class="nav-links">
                 <li><a href="./">Home</a></li>
@@ -51,5 +57,6 @@
 
     <script type="module" src="js/script.js"></script>
     <script src="js/utils/clock.js"></script>
+    <script src="js/search.js"></script>
 </body>
 </html>

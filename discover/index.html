@@ -9,8 +9,12 @@
 <body>
     <header>
         <div class="container">
-            <nav>
-                <img class="logo" src="../images/logo/secretoslologo.png">
+            <nav class="nav-bar">
+                <img class="logo" src="../images/logo/secretoslologo.png" alt="Secret Oslo Logo">
+                <form id="searchForm" class="search-form" action="../search-results.html">
+                    <input type="text" id="searchInput" class="search-input" placeholder="Search..." value="">
+                    <button type="submit" class="search-button">Search</button>
+                </form>
             </nav>
             <ul class="nav-links">
                 <li><a href="../">Home</a></li>
@@ -27,6 +31,7 @@
                 <option value="all">All</option>
                 <option value="restaurant">Restaurant</option>
                 <option value="monument">Monument</option>
+                <option value="museum">Museum</option>
                 <!-- Add more categories as needed -->
             </select>
         </section>
@@ -35,5 +40,6 @@
         </section>
     </main>
     <script src="../js/discover.js"></script>
+    <script src="../js/utils/search.js"></script>
 </body>
 </html>
