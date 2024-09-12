@@ -1,4 +1,3 @@
-// highlightActiveLink.js
 document.addEventListener('DOMContentLoaded', () => {
     // Get the current URL path and normalize it
     const currentPath = window.location.pathname.replace(/\/$/, ""); // Remove trailing slash for consistency

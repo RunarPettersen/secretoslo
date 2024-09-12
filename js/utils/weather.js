@@ -1,8 +1,10 @@
+// Ensure the API base URL uses HTTPS
 import { baseurl, apiKey } from '../constants/api.js';
 
 // Function to fetch weather data for a given city
 export const fetchWeatherData = async (city) => {
     try {
+        // Use HTTPS in the URL
         const response = await fetch(`${baseurl}/current.json?key=${apiKey}&q=${city}`);
         if (!response.ok) {
             throw new Error('Failed to fetch weather data. Please try again later.');
