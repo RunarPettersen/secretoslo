@@ -121,6 +121,80 @@ header .logo {
     transition: 0.5s;
 }
 
+/* Menu */
+
+/* Mobile Menu Toggle Button */
+.menu-toggle {
+    display: none;
+    background: none;
+    border: none;
+    font-size: 34px;
+    cursor: pointer;
+    margin-right: 20px;
+    color: var(--main-color);
+}
+
+/* Mobile Menu */
+.mobile-menu {
+    position: fixed;
+    top: 95px;
+    right: -100%; /* Start off-screen */
+    width: 100%;
+    max-width: 500px;
+    height: 100vh;
+    background-color: #fff;
+    box-shadow: -2px 0 5px rgba(0, 0, 0, 0.3);
+    transition: right 0.3s ease;
+    z-index: 1000;
+    padding: 20px;
+    box-sizing: border-box;
+    overflow-y: auto;
+}
+
+/* Mobile Menu Active State */
+.mobile-menu.active {
+    right: 0; /* Slide into view */
+}
+
+/* Close Button for Mobile Menu */
+.close-menu {
+    background: none;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+    position: absolute;
+    top: 20px;
+    right: 20px;
+}
+
+/* Mobile Nav Links */
+.mobile-nav-links {
+    list-style: none;
+    padding: 0;
+    margin-top: 60px; /* Add space for close button */
+}
+
+.mobile-nav-links li {
+    margin: 10px 0;
+}
+
+.mobile-nav-links a {
+    text-decoration: none;
+    color: #333;
+    font-size: 18px;
+}
+
+/* Show the toggle button on mobile and hide desktop search and nav */
+@media (max-width: 500px) {
+    .menu-toggle {
+        display: block;
+    }
+
+    .nav-links, .search-form {
+        display: none; /* Hide desktop menu and search */
+    }
+}
+
 /* Search results page styles */
 .search-results {
     width: 100%;
@@ -598,15 +672,41 @@ p {
 }
 
 /* Media query for small screens */
+@media (max-width: 1000px) {
+    .places-section {
+        grid-template-columns: 1fr 1fr;
+        width: unset;
+    }
+
+    .favorites-section {
+        grid-template-columns: 1fr 1fr;
+        width: unset;
+    }
+
+}
+
+/* Media query for small screens */
 @media (max-width: 800px) {
     .destinations-grid {
         grid-template-columns: 1fr 1fr;
     }
+
+    .places-section {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    main container {
+        flex-direction: column-reverse;
+    }
 }
 
 /* Media query for very small screens (e.g., mobile devices) */
-@media (max-width: 400px) {
+@media (max-width: 500px) {
     .destinations-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .places-section {
         grid-template-columns: 1fr;
     }
 }

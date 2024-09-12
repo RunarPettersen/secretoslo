@@ -13,20 +13,41 @@
             <nav class="nav-bar">
                 <img class="logo" src="images/logo/secretoslologo.png" alt="Secret Oslo Logo">
                 
-                <!-- Search Bar -->
+                <!-- Search Bar for Desktop -->
                 <form id="searchForm" class="search-form" action="search-results.html" method="get">
                     <input type="text" id="searchInput" class="search-input" name="query" placeholder="Search...">
                     <button type="submit" class="search-button">Search</button>
                 </form>
+    
+                <!-- Mobile Menu Toggle Button -->
+                <button class="menu-toggle" id="menuToggle">☰</button>
             </nav>
+    
+            <!-- Desktop Menu Links -->
             <ul class="nav-links">
                 <li><a href="./">Home</a></li>
                 <li><a href="history/">History</a></li>
                 <li><a href="discover/">Discover</a></li>
                 <li><a href="discover/favorites.html">Favorites</a></li>
             </ul>
+    
+            <!-- Mobile Menu -->
+            <div class="mobile-menu" id="mobileMenu">
+                <button class="close-menu" id="closeMenu">X</button>
+                <form id="mobileSearchForm" class="mobile-search-form" action="search-results.html" method="get">
+                    <input type="text" id="mobileSearchInput" class="search-input" name="query" placeholder="Search...">
+                    <button type="submit" class="search-button">Search</button>
+                </form>
+                <ul class="mobile-nav-links">
+                    <li><a href="./">Home</a></li>
+                    <li><a href="history/">History</a></li>
+                    <li><a href="discover/">Discover</a></li>
+                    <li><a href="discover/favorites.html">Favorites</a></li>
+                </ul>
+            </div>
         </div>
     </header>
+    
     <!-- Corrected HTML Structure -->
     <main>
         <container>
@@ -60,5 +81,6 @@
     <script src="js/utils/search.js"></script>
     <script type="module" src="js/utils/loader.js"></script>
     <script src="js/utils/highlightActiveLink.js"></script>
+    <script src="js/utils/menuToggle.js"></script>
 </body>
 </html>
