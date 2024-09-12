@@ -19,10 +19,20 @@ const displayFavorites = () => {
             <h3>${favorite.title}</h3>
             <img src="../${favorite.image}" alt="${favorite.title}" class="favorite-image">
             <p>${favorite.introduction}</p>
-            <button class="details-btn" onclick="location.href='detail.html?id=${favorite.id}'">View Details</button>
-            <button class="remove-btn" onclick="removeFavorite(${favorite.id})">Remove</button>
+            <button class="details-btn">View Details</button>
+            <button class="remove-btn">Remove</button>
         `;
         favoritesSection.appendChild(favoriteElement);
+
+        // Add event listener for the "View Details" button
+        favoriteElement.querySelector('.details-btn').addEventListener('click', () => {
+            location.href = `detail.html?id=${favorite.id}`;
+        });
+
+        // Add event listener for the "Remove" button
+        favoriteElement.querySelector('.remove-btn').addEventListener('click', () => {
+            removeFavorite(favorite.id);
+        });
     });
 };
 
@@ -35,3 +45,4 @@ const removeFavorite = (id) => {
 };
 
 document.addEventListener('DOMContentLoaded', displayFavorites);
+

@@ -1,10 +1,7 @@
 import { setupLoader } from './utils/loader.js';
+import { displayGalleryImages } from './utils/gallery.js'; // Import the gallery functions
 
 setupLoader();
-
-let currentImageIndex = 0; // Track the current image index
-let imageFilenames = []; // Store the list of image filenames for navigation
-let galleryPath = ''; // Store the gallery path for constructing image URLs
 
 const fetchDestinationDetails = async () => {
     const urlParams = new URLSearchParams(window.location.search);
@@ -20,7 +17,7 @@ const fetchDestinationDetails = async () => {
 
         if (destination) {
             displayDestinationDetails(destination);
-            displayGalleryImages(destination.galleryPath, destination.galleryImages);
+            displayGalleryImages(destination.galleryPath, destination.galleryImages); // Call the separated function
         } else {
             document.getElementById('destinationDetails').innerHTML = '<p>Destination not found.</p>';
         }
@@ -31,6 +28,10 @@ const fetchDestinationDetails = async () => {
 
 const displayDestinationDetails = (destination) => {
     const detailSection = document.getElementById('destinationDetails');
+    
+    // Check if the destination has a homepage link
+    const homepageLink = destination.homepage ? `<p><strong>Homepage:</strong> <a href="${destination.homepage}" target="_blank" rel="noopener noreferrer">${destination.homepage}</a></p>` : '';
+
     detailSection.innerHTML = `
         <img src="../${destination.image}" alt="${destination.title}" class="destination-image">
         <p><strong>${destination.introduction}</strong></p>
@@ -39,6 +40,7 @@ const displayDestinationDetails = (destination) => {
         <p><strong>Address:</strong> ${destination.address}</p>
         <p><strong>Category:</strong> ${destination.category}</p>
         <p><strong>Tags:</strong> ${destination.tags.join(', ')}</p>
+        ${homepageLink} <!-- Conditionally include the homepage link -->
         <button id="favorite-btn" class="favorite-btn">${isFavorite(destination.id) ? 'Remove from Favorites' : 'Add to Favorites'}</button>
         <div id="gallery" class="gallery"></div> <!-- Gallery section -->
     `;
@@ -50,78 +52,6 @@ const displayDestinationDetails = (destination) => {
     });
 };
 
-const displayGalleryImages = (path, filenames) => {
-    const gallery = document.getElementById('gallery');
-    imageFilenames = filenames; // Store filenames for navigation
-    galleryPath = path; // Store the gallery path for constructing full image URLs
-
-    if (imageFilenames && imageFilenames.length > 0) {
-        imageFilenames.forEach((filename, index) => {
-            const imgElement = document.createElement('img');
-            imgElement.src = `../${galleryPath}/${filename}`; // Correctly construct the image path
-            imgElement.alt = "Gallery Image";
-            imgElement.className = 'gallery-image';
-
-            // Add click event to open image in lightbox
-            imgElement.addEventListener('click', () => openLightbox(index));
-
-            gallery.appendChild(imgElement);
-        });
-    } else {
-        gallery.innerHTML = '<p>No images available in the gallery.</p>';
-    }
-};
-
-// Function to open the lightbox with the clicked image
-const openLightbox = (index) => {
-    currentImageIndex = index;
-    updateLightboxImage();
-    document.getElementById('lightbox').style.display = 'flex';
-};
-
-// Function to update the image in the lightbox
-const updateLightboxImage = () => {
-    const lightboxImg = document.getElementById('lightbox').querySelector('img');
-    lightboxImg.src = `../${galleryPath}/${imageFilenames[currentImageIndex]}`; // Correctly construct the image path for lightbox
-};
-
-// Function to close the lightbox
-const closeLightbox = () => {
-    document.getElementById('lightbox').style.display = 'none';
-};
-
-// Function to show the next image
-const showNextImage = () => {
-    currentImageIndex = (currentImageIndex + 1) % imageFilenames.length;
-    updateLightboxImage();
-};
-
-// Function to show the previous image
-const showPrevImage = () => {
-    currentImageIndex = (currentImageIndex - 1 + imageFilenames.length) % imageFilenames.length;
-    updateLightboxImage();
-};
-
-// Add event listeners for the lightbox buttons and background
-document.addEventListener('DOMContentLoaded', () => {
-    // Close lightbox when clicking outside the image or on the close button
-    document.getElementById('lightbox').addEventListener('click', (event) => {
-        if (event.target.classList.contains('close')) {
-            closeLightbox();
-        }
-    });
-
-    // Event listeners for navigation buttons
-    document.getElementById('next-btn').addEventListener('click', (event) => {
-        event.stopPropagation(); // Prevent click from closing lightbox
-        showNextImage();
-    });
-
-    document.getElementById('prev-btn').addEventListener('click', (event) => {
-        event.stopPropagation(); // Prevent click from closing lightbox
-        showPrevImage();
-    });
-});
 
 const isFavorite = (id) => {
     const favorites = JSON.parse(localStorage.getItem('favorites')) || [];
@@ -150,7 +80,6 @@ const displayMessage = (message, type = 'success') => {
     // Append the notification to the container
     container.appendChild(notification);
 
-    // Automatically remove the notification after 3 seconds
     setTimeout(() => {
         if (container.contains(notification)) {
             container.removeChild(notification);

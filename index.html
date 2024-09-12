@@ -11,7 +11,7 @@
     <header>
         <div class="container">
             <nav class="nav-bar">
-                <img class="logo" src="images/logo/secretoslologo.png" alt="Secret Oslo Logo">
+                <a href="./"><img class="logo" src="../images/logo/secretoslologo.png" alt="Secret Oslo Logo"></a>
                 
                 <!-- Search Bar for Desktop -->
                 <form id="searchForm" class="search-form" action="search-results.html" method="get">
@@ -19,7 +19,6 @@
                     <button type="submit" class="search-button">Search</button>
                 </form>
     
-                <!-- Mobile Menu Toggle Button -->
                 <button class="menu-toggle" id="menuToggle">☰</button>
             </nav>
     
@@ -48,7 +47,6 @@
         </div>
     </header>
     
-    <!-- Corrected HTML Structure -->
     <main>
         <container>
             <section class="weather-section">
@@ -56,30 +54,31 @@
             <section class="times">
                 <div data-timezone="Europe/Oslo">
                     <h2>Oslo Time:</h2>
-                    <output>00:00:00</output>
+                    <output class="time">00:00:00</output>
+                    <output class="date">Date</output> <!-- Placeholder for Date -->
+                    <output class="day">Day</output> <!-- Placeholder for Day -->
                 </div>
             </section>
         </container>
         <div class="restaurants">
             <h2>Where to eat:</h2>
             <section class="places-section restaurants-section">
-                <!-- Restaurants will be displayed here -->
             </section>
         </div>
-        <!-- Monuments Section -->
         <div class="monuments">
             <h2>Monuments:</h2>
             <section class="places-section monuments-section">
-                <!-- Monuments will be displayed here -->
             </section>
         </div>
     </main>
+
+    <footer>Copyright 2024</footer>
+
     <div class="loader"></div>
 
     <script type="module" src="js/script.js"></script>
     <script src="js/utils/clock.js"></script>
     <script src="js/utils/search.js"></script>
-    <script type="module" src="js/utils/loader.js"></script>
     <script src="js/utils/highlightActiveLink.js"></script>
     <script src="js/utils/menuToggle.js"></script>
 </body>

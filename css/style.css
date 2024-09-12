@@ -8,18 +8,19 @@
 }
 
 body {
-    background: linear-gradient(45deg, white, #666, white, #666, white);
+    background: linear-gradient(45deg, white, #aa0000, white, #aa0000, white);
     color: var(--font-color);
     font-family: "Poppins", sans-serif;
     font-weight: 400;
     font-style: normal;
     margin: 0;
     padding: 0;
-    display: flex;
-    flex-direction: column;
     align-items: center;
-    justify-content: flex-start;
+    justify-content: center;
     min-height: 100vh;
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+    align-items: stretch;
 }
 
 Main {
@@ -92,11 +93,12 @@ header .logo {
     justify-content: space-between;
 }
 
-/* Style for the search form */
 .search-form {
     display: flex;
     align-items: center;
     padding-right: 10px;
+    position: relative;
+    top: 20px;
 }
 
 .search-input {
@@ -151,20 +153,19 @@ header .logo {
     overflow-y: auto;
 }
 
-/* Mobile Menu Active State */
 .mobile-menu.active {
-    right: 0; /* Slide into view */
+    right: 0;
 }
 
-/* Close Button for Mobile Menu */
 .close-menu {
     background: none;
     border: none;
-    font-size: 24px;
+    font-size: 34px;
     cursor: pointer;
     position: absolute;
     top: 20px;
     right: 20px;
+    color: var(--main-color);
 }
 
 /* Mobile Nav Links */
@@ -253,8 +254,8 @@ section.times h2 {
 }
 
 section.times output {
-    font-size: 2rem;
-    font-weight: 700;
+    font-size: 1.5rem;
+    font-weight: 400;
 }
 
 /* Weather Section */
@@ -665,6 +666,15 @@ p {
     animation: loading 0.75s ease infinite;
 }
 
+/* Footer */
+
+footer {
+  background-color: black;
+  color: white;
+  text-align: center;
+  padding: 1em;
+}
+
 @keyframes loading {
     to {
         transform: rotate(360deg);
@@ -680,6 +690,10 @@ p {
 
     .favorites-section {
         grid-template-columns: 1fr 1fr;
+        width: unset;
+    }
+
+    .search-results {
         width: unset;
     }
 
@@ -708,5 +722,10 @@ p {
 
     .places-section {
         grid-template-columns: 1fr;
+    }
+
+    .favorites-section {
+        grid-template-columns: 1fr;
+        width: unset;
     }
 }
