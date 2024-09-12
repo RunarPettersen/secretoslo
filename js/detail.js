@@ -1,3 +1,7 @@
+import { setupLoader } from './utils/loader.js';
+
+setupLoader();
+
 let currentImageIndex = 0; // Track the current image index
 let imageFilenames = []; // Store the list of image filenames for navigation
 let galleryPath = ''; // Store the gallery path for constructing image URLs

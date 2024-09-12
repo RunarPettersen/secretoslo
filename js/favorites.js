@@ -1,3 +1,7 @@
+import { setupLoader } from './utils/loader.js';
+
+setupLoader();
+
 const displayFavorites = () => {
     const favoritesSection = document.getElementById('favoritesSection');
     const favorites = JSON.parse(localStorage.getItem('favorites')) || [];

@@ -1,3 +1,7 @@
+import { setupLoader } from './utils/loader.js';
+
+setupLoader();
+
 document.addEventListener('DOMContentLoaded', async () => {
     const urlParams = new URLSearchParams(window.location.search);
     const query = urlParams.get('query') ? urlParams.get('query').toLowerCase() : '';

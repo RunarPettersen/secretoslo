@@ -1,5 +1,8 @@
 import { fetchWeatherData, displayWeather } from './utils/weather.js';
 import { fetchPlaces } from './utils/places.js'; // Import the fetchPlaces function
+import { setupLoader } from './utils/loader.js';
+
+setupLoader();
 
 const initApp = async () => {
     try {

@@ -1,3 +1,7 @@
+import { setupLoader } from './utils/loader.js';
+
+setupLoader();
+
 const fetchDestinations = async () => {
     try {
         const response = await fetch('../json/places.json');
@@ -59,4 +63,3 @@ const filterDestinations = (destinations, category) => {
 };
 
 document.addEventListener('DOMContentLoaded', fetchDestinations);
-
