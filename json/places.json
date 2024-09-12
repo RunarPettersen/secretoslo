@@ -11,6 +11,8 @@
         "galleryPath": "images/thecarouseloflove",
         "galleryImages": ["thecarouseloflove01.jpg", "thecarouseloflove02.jpg", "thecarouseloflove03.jpg", "thecarouseloflove04.jpg"],
         "tags": ["local history", "design"],
+        "latitude": 59.926962,
+        "longitude": 10.729680,
         "favorite": true
     },
     {
@@ -25,6 +27,8 @@
         "galleryPath": "images/thedevilofoslo",
         "galleryImages": ["thedevilofoslo01.jpg", "thedevilofoslo02.jpg", "thedevilofoslo03.jpg", "thedevilofoslo04.jpg"],
         "tags": ["local history", "religion"],
+        "latitude": 59.912626,
+        "longitude": 10.746361,
         "favorite": true
     },
     {
@@ -39,6 +43,8 @@
         "galleryPath": "images/syverkiosken",
         "galleryImages": ["syverkiosken01.jpg", "syverkiosken02.jpg", "syverkiosken03.jpg", "syverkiosken04.jpg", "syverkiosken05.jpg"],
         "tags": ["local history", "food", "restaurant"],
+        "latitude": 59.928266,
+        "longitude": 10.752394,
         "favorite": true
     },
     {
@@ -53,6 +59,8 @@
         "galleryPath": "images/valkyriengrill",
         "galleryImages": ["valkyriengrill01.jpg", "valkyriengrill02.jpg", "valkyriengrill03.jpg", "valkyriengrill04.jpg", "valkyriengrill05.jpg", "valkyriengrill06.jpg", "valkyriengrill07.jpg"],
         "tags": ["local history", "food", "restaurant"],
+        "latitude": 59.928139,
+        "longitude": 10.718283,
         "favorite": true
     },
     {
@@ -61,12 +69,14 @@
         "introduction": "Do you want to eat where all the most famous Norwegian's used to eat? You can do it at Norway's oldest restaruant.",
         "description": "<p>Engebret is Norway's oldest restaurant still in operation, having opened back in 1857. Originally located at Rådhusgata 11, Engebret moved just a few years later, in 1863, to Bankplassen, where it remains today. Little has changed in the café since then. Many of Norway's great artists and writers of the past had regular tables here, including Ibsen, Grieg, Bjørnstjerne Bjørnson, Hamsun, Edvard Munch, Johanne Dybwad, Sigrid Undset, Peter Christen Asbjørnsen, Johan Sverdrup, and many more. Some of these have plaques at the tables indicating which ones were their regular spots. Edvard Munch, known for his heavy drinking, was even thrown out of the restaurant after a drunken spree, which led him to resign from the Oslo Art Association. The letter of his resignation is actually displayed at the entrance of Engebret.</p><p>Another amusing story involves regular guest Bjørnstjerne Bjørnson, who jokingly asked a nervous young waiter if he had hemorrhoids because he was so restless. The waiter ran to the kitchen to check if they had hemorrhoids on the menu but returned embarrassed when he learned what they were. This backfired on Bjørnson when he later ordered artichokes; the waiter just laughed and said he wouldn’t fall for that again. Former Prime Minister Johan Sverdrup once forgot to pay his bill of 2.90 kroner in 1884. Lars Sponheim settled that bill on May 21, 2008.</p><p>Many TV series and films have taken place at Engebret Café. Most famously, the show 'Husker du' with Odd Gryte ran for fourteen years. In the 1967 film 'Liv,' there is a scene from the restaurant, but the sign is different from what we see today—it reads 'Engebrets Café,' with an extra 's' compared to the current name. Additionally, Norway's Crown Princess Mette-Marit worked as a waitress at the restaurant on and off for four years. There is also a book from 1994 titled 'Nede på Engebret' if you want to read more about the restaurant's rich history.</p>",
         "where": "Engebret Café is just around where the old Norwegian bang buildings are.",
-        "address": "Karl Johans gt. 11, 0154 Oslo",
+        "address": "Bankplassen 1, 0151 Oslo",
         "category": "restaurant",
         "image": "images/engebretcafe/engebretcafe01.jpg",
         "galleryPath": "images/engebretcafe",
         "galleryImages": ["engebretcafe01.jpg", "engebretcafe02.jpg", "engebretcafe03.jpg", "engebretcafe04.jpg"],
         "tags": ["local history", "restaurant", "food"],
+        "latitude": 59.908920,
+        "longitude": 10.742044,
         "favorite": true
     },
     {
@@ -82,6 +92,8 @@
         "galleryImages": ["minibottlegallery01.jpg", "minibottlegallery02.jpg", "minibottlegallery03.jpg", "minibottlegallery04.jpg"],
         "tags": ["museum", "gallery"],
         "homepage": "https://www.minibottlegallery.com",
+        "latitude": 59.909685,
+        "longitude": 10.743352,
         "favorite": true
     },
     {
@@ -90,12 +102,14 @@
         "introduction": "Oslo’s own museum presents the city’s rich history through varied exhibitions. If you want to learn the history of Oslo–this is the museum to visit.",
         "description": "<p>The Museum of Oslo has been a part of Oslo Museum since 2006. It serves as the cultural history museum for Oslo and the former Aker district. The museum was founded on December 22, 1905, as the association 'Det gamle Christiania.' The initiative was led by architect Fritz Holland, who remained in charge until 1912. The museum is located at Frogner Manor in Frogner Park, where the first exhibitions were opened in the main building in 1909. In the 1980s, the east wing of the estate was developed for the Museum of Oslo's permanent city history exhibitions. In 2000, the museum's new administration building was completed on the east side of the estate, and the west wing was utilized in 2003 for temporary exhibitions. In its final year as an independent museum, Oslo City Museum had a total of 90,117 visitors.</p><p>Until the end of 2005, the Museum of Oslo was still organized as a private association but was primarily funded by public grants from Oslo Municipality and the state. The association was dissolved by decision of the general assembly on its centennial, December 22, 2005. At the same time, it was decided to establish a foundation to manage the ownership of the collections and a friends' association to represent the interests of its members. From January 1, 2006, the Museum of Oslo became part of the new foundation Oslo Museum, which took over operational responsibility. The new museum foundation initially operated under the working title 'Hovedstadsmuseet,' but since December 2006, it has been known as Oslo Museum. The Museum of Oslo, the Intercultural Museum (IKM), and the Theatre Museum joined forces to establish the new museum as a consequence of the national museum reform. For the time being, the three former entities continued to operate from their previous locations.</p><p>The Museum of Oslo has satellite exhibitions in workers' housing at Tøyen and Sagene. In 2008, it also opened the exhibition 'Christiania 1624 - 1850' in the Old Town Hall, but this had to be discontinued in 2010 due to financial constraints that forced the museum to terminate the lease with Oslo Municipality. The museum manages events and city walks under the 'Know Your City' program and publishes the journal Byminner (started in 1955). The collections include all types of objects related to the city's history and the lives and activities of its inhabitants. Particularly valuable are the Museum of Oslo's art collection and photo collection featuring Oslo scenes and portraits. The photo collection is one of the largest in the country and documents the city's development from the early days of photography to the present. In 2010, Oslo Museum, in collaboration with Oslo City Archives, launched the website oslobilder.no, offering searchable access to the digitized parts of the photo collections from both institutions.</p>",
         "where": "The museum can be found in Frognerparken close to Frogner Manor House with its glorious halls and interiors from circa 1750–1900.",
-        "address": "Karl Johans gt. 11, 0154 Oslo",
+        "address": "Frognerveien 67, 0266 Oslo",
         "category": "museum",
         "image": "images/museumofoslo/museumofoslo01.jpg",
         "galleryPath": "images/museumofoslo",
         "galleryImages": ["museumofoslo01.jpg", "museumofoslo02.jpg", "museumofoslo03.jpg", "museumofoslo04.jpg"],
         "tags": ["local history", "religion"],
+        "latitude": 59.923911,
+        "longitude": 10.702611,
         "favorite": true
     },
     {
@@ -110,6 +124,8 @@
         "galleryPath": "images/ww2graffitibetruetoh7",
         "galleryImages": ["ww2graffitibetruetoh701.jpg", "ww2graffitibetruetoh702.jpg"],
         "tags": ["local history", "graffiti", "ww2", "war"],
+        "latitude": 59.922214,
+        "longitude": 10.721665,
         "favorite": true
     },
     {
@@ -124,6 +140,8 @@
         "galleryPath": "images/thepowdertower",
         "galleryImages": ["thepowdertower01.jpg", "thepowdertower02.jpg", "thepowdertower03.jpg", "thepowdertower04.jpg", "thepowdertower05.jpg", "thepowdertower06.jpg", "thepowdertower07.jpg", "thepowdertower08.jpg", "thepowdertower09.jpg", "thepowdertower10.jpg", "thepowdertower11.jpg", "thepowdertower12.png"],
         "tags": ["local history", "prison"],
+        "latitude": 59.907966,
+        "longitude": 10.738691,
         "favorite": true
     },
     {
@@ -139,6 +157,8 @@
         "galleryImages": ["thepowdertower01.jpg", "thepowdertower02.jpg", "thepowdertower03.jpg", "thepowdertower04.jpg", "thepowdertower05.jpg", "thepowdertower06.jpg", "thepowdertower07.jpg", "thepowdertower08.jpg", "thepowdertower09.jpg", "thepowdertower10.jpg", "thepowdertower11.jpg", "thepowdertower12.png"],
         "tags": ["local history", "food", "restraurant"],
         "homepage": "https://www.restaurant-schrøder.no",
+        "latitude": 59.923416,
+        "longitude": 10.739474,
         "favorite": true
     },
     {
@@ -153,6 +173,8 @@
         "galleryPath": "images/thepowdertower",
         "galleryImages": ["thepowdertower01.jpg", "thepowdertower02.jpg", "thepowdertower03.jpg", "thepowdertower04.jpg", "thepowdertower05.jpg", "thepowdertower06.jpg", "thepowdertower07.jpg", "thepowdertower08.jpg", "thepowdertower09.jpg", "thepowdertower10.jpg", "thepowdertower11.jpg", "thepowdertower12.png"],
         "tags": ["local history", "prison"],
+        "latitude": 59.917831,
+        "longitude": 10.733562,
         "favorite": true
     }
 ]

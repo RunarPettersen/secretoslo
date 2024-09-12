@@ -13,11 +13,13 @@ const fetchDestinationDetails = async () => {
             throw new Error('Failed to fetch destinations data.');
         }
         const destinations = await response.json();
-        const destination = destinations.find(dest => dest.id == destinationId);
+        const currentDestination = destinations.find(dest => dest.id == destinationId);
 
-        if (destination) {
-            displayDestinationDetails(destination);
-            displayGalleryImages(destination.galleryPath, destination.galleryImages); // Call the separated function
+        if (currentDestination) {
+            displayDestinationDetails(currentDestination);
+            displayGalleryImages(currentDestination.galleryPath, currentDestination.galleryImages);
+            // Call the function to show nearby places relative to the current place
+            showNearbyPlaces(currentDestination, destinations);
         } else {
             document.getElementById('destinationDetails').innerHTML = '<p>Destination not found.</p>';
         }
@@ -28,8 +30,6 @@ const fetchDestinationDetails = async () => {
 
 const displayDestinationDetails = (destination) => {
     const detailSection = document.getElementById('destinationDetails');
-    
-    // Check if the destination has a homepage link
     const homepageLink = destination.homepage ? `<p><strong>Homepage:</strong> <a href="${destination.homepage}" target="_blank" rel="noopener noreferrer">${destination.homepage}</a></p>` : '';
 
     detailSection.innerHTML = `
@@ -40,7 +40,7 @@ const displayDestinationDetails = (destination) => {
         <p><strong>Address:</strong> ${destination.address}</p>
         <p><strong>Category:</strong> ${destination.category}</p>
         <p><strong>Tags:</strong> ${destination.tags.join(', ')}</p>
-        ${homepageLink} <!-- Conditionally include the homepage link -->
+        ${homepageLink}
         <button id="favorite-btn" class="favorite-btn">${isFavorite(destination.id) ? 'Remove from Favorites' : 'Add to Favorites'}</button>
         <div id="gallery" class="gallery"></div> <!-- Gallery section -->
     `;
@@ -52,6 +52,51 @@ const displayDestinationDetails = (destination) => {
     });
 };
 
+// Function to find and display the four closest places to the current place
+const showNearbyPlaces = (currentDestination, allDestinations) => {
+    // Define a function to calculate distance using the Haversine formula
+    const calculateDistance = (lat1, lon1, lat2, lon2) => {
+        const R = 6371; // Radius of the Earth in km
+        const dLat = (lat2 - lat1) * Math.PI / 180;
+        const dLon = (lon2 - lon1) * Math.PI / 180;
+        const a = 
+            0.5 - Math.cos(dLat) / 2 + 
+            Math.cos(lat1 * Math.PI / 180) * Math.cos(lat2 * Math.PI / 180) * 
+            (1 - Math.cos(dLon)) / 2;
+
+        return R * 2 * Math.asin(Math.sqrt(a));
+    };
+
+    // Filter and sort places by distance to the current destination, excluding itself
+    const nearbyPlaces = allDestinations
+        .filter(place => place.id !== currentDestination.id)
+        .map(place => {
+            place.distance = calculateDistance(
+                currentDestination.latitude,
+                currentDestination.longitude,
+                place.latitude,
+                place.longitude
+            );
+            return place;
+        })
+        .sort((a, b) => a.distance - b.distance) // Sort by distance
+        .slice(0, 4); // Take the four closest places
+
+    // Display the four closest places in a grid
+    const nearbyList = document.getElementById('nearbyList');
+    if (nearbyPlaces.length > 0) {
+        nearbyList.innerHTML = nearbyPlaces.map(place => `
+            <div class="nearby-item">
+                <img src="../${place.image}" alt="${place.title}" class="nearby-image">
+                <h3>${place.title}</h3>
+                <p class="description">${place.introduction}</p>
+                <button onclick="window.location.href='detail.html?id=${place.id}'">View Details</button>
+            </div>
+        `).join('');
+    } else {
+        nearbyList.innerHTML = '<p>No nearby places found.</p>';
+    }
+};
 
 const isFavorite = (id) => {
     const favorites = JSON.parse(localStorage.getItem('favorites')) || [];
