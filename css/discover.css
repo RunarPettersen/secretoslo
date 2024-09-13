@@ -226,6 +226,11 @@ p {
     transition: background-color 0.3s;
 }
 
+@media (max-width: 1000px) {
+    #nearbyList {
+        grid-template-columns: 1fr 1fr;
+    }
+}
 
 @media (max-width: 800px) {
     .destinations-grid {
@@ -235,6 +240,10 @@ p {
 
 @media (max-width: 500px) {
     .destinations-grid {
+        grid-template-columns: 1fr;
+    }
+
+    #nearbyList {
         grid-template-columns: 1fr;
     }
 }
