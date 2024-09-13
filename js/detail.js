@@ -41,7 +41,10 @@ const displayDestinationDetails = (destination) => {
         <p><strong>Category:</strong> ${destination.category}</p>
         <p><strong>Tags:</strong> ${destination.tags.join(', ')}</p>
         ${homepageLink}
-        <button id="favorite-btn" class="favorite-btn">${isFavorite(destination.id) ? 'Remove from Favorites' : 'Add to Favorites'}</button>
+        <button id="favorite-btn" class="favorite-btn">
+            <i class="${isFavorite(destination.id) ? 'fas fa-heart' : 'far fa-heart'}"></i>
+            ${isFavorite(destination.id) ? ' Remove from Favorites' : ' Add to Favorites'}
+        </button>
         <div id="gallery" class="gallery"></div> <!-- Gallery section -->
     `;
     document.getElementById('detail-title').textContent = destination.title;
@@ -49,7 +52,17 @@ const displayDestinationDetails = (destination) => {
     // Add event listener to the favorite button
     document.getElementById('favorite-btn').addEventListener('click', () => {
         toggleFavorite(destination);
+        updateFavoriteButton(destination.id); // Update the button's icon and text
     });
+};
+
+// Function to update the favorite button
+const updateFavoriteButton = (id) => {
+    const favoriteBtn = document.getElementById('favorite-btn');
+    favoriteBtn.innerHTML = `
+        <i class="${isFavorite(id) ? 'fas fa-heart' : 'far fa-heart'}"></i>
+        ${isFavorite(id) ? ' Remove from Favorites' : ' Add to Favorites'}
+    `;
 };
 
 // Function to find and display the four closest places to the current place
@@ -142,7 +155,6 @@ const toggleFavorite = (destination) => {
         displayMessage('Added to Favorites', 'success');
     }
     localStorage.setItem('favorites', JSON.stringify(favorites));
-    document.getElementById('favorite-btn').textContent = isFavorite(destination.id) ? 'Remove from Favorites' : 'Add to Favorites';
 };
 
 document.addEventListener('DOMContentLoaded', fetchDestinationDetails);

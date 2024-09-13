@@ -107,7 +107,7 @@
         "image": "images/museumofoslo/museumofoslo01.jpg",
         "galleryPath": "images/museumofoslo",
         "galleryImages": ["museumofoslo01.jpg", "museumofoslo02.jpg", "museumofoslo03.jpg", "museumofoslo04.jpg"],
-        "tags": ["local history", "religion"],
+        "tags": ["local history", "city"],
         "latitude": 59.923911,
         "longitude": 10.702611,
         "favorite": true

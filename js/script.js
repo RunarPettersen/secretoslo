@@ -1,5 +1,5 @@
 import { fetchWeatherData, displayWeather } from './utils/weather.js';
-import { fetchPlaces } from './utils/places.js'; // Import the fetchPlaces function
+import { fetchPlaces } from './utils/places.js';
 import { setupLoader } from './utils/loader.js';
 
 setupLoader();
