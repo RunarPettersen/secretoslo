@@ -28,6 +28,9 @@ const openLightbox = (index) => {
     currentImageIndex = index;
     updateLightboxImage();
     document.getElementById('lightbox').style.display = 'flex';
+
+    // Add keydown event listener for arrow key navigation when lightbox is open
+    document.addEventListener('keydown', handleKeydown);
 };
 
 const updateLightboxImage = () => {
@@ -37,6 +40,9 @@ const updateLightboxImage = () => {
 
 const closeLightbox = () => {
     document.getElementById('lightbox').style.display = 'none';
+
+    // Remove keydown event listener when lightbox is closed
+    document.removeEventListener('keydown', handleKeydown);
 };
 
 const showNextImage = () => {
@@ -47,6 +53,17 @@ const showNextImage = () => {
 const showPrevImage = () => {
     currentImageIndex = (currentImageIndex - 1 + imageFilenames.length) % imageFilenames.length;
     updateLightboxImage();
+};
+
+// Handle keydown events for arrow key navigation
+const handleKeydown = (event) => {
+    if (event.key === 'ArrowRight') {
+        showNextImage();
+    } else if (event.key === 'ArrowLeft') {
+        showPrevImage();
+    } else if (event.key === 'Escape') {
+        closeLightbox();
+    }
 };
 
 // Set up event listeners for lightbox controls

@@ -13,7 +13,6 @@ export const fetchPlaces = async () => {
     }
 };
 
-// Function to display places in the grid
 export const displayPlaces = (places, category, sectionSelector) => {
     const placesSection = document.querySelector(sectionSelector);
     let displayedCount = 3; // Number of places initially displayed
@@ -54,7 +53,7 @@ export const displayPlaces = (places, category, sectionSelector) => {
             const seeMoreElement = document.createElement('div');
             seeMoreElement.className = 'place-item see-more';
             seeMoreElement.innerHTML = `
-                <p>Find more in the same category.</p>
+                <p>Find more places in the same category to visit.</p>
                 <button class="see-more-btn">See More</button>
             `;
             seeMoreElement.addEventListener('click', () => {
