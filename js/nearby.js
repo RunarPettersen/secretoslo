@@ -49,6 +49,7 @@ const showNearbyPlaces = async () => {
                     <img src="../${place.image}" alt="${place.title}" class="nearby-image">
                     <h3>${place.title}</h3>
                     <p class="description">${place.introduction}</p>
+                    <p class="distance">${place.distance.toFixed(2)} km away</p> <!-- Display distance -->
                     <button onclick="window.location.href='../discover/detail.html?id=${place.id}'">View Details</button>
                 </div>
             `).join('');
@@ -70,7 +71,7 @@ const showNearbyPlaces = async () => {
             // Add markers for each nearby place
             nearbyPlaces.forEach(place => {
                 L.marker([place.latitude, place.longitude]).addTo(map)
-                    .bindPopup(`<b>${place.title}</b><br>${place.introduction}`);
+                    .bindPopup(`<b>${place.title}</b><br>${place.introduction}<br>${place.distance.toFixed(2)} km away`);
             });
 
         }, error => {

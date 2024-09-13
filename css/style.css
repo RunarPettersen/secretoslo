@@ -55,9 +55,9 @@ header nav {
 }
 
 header .logo {
-    width: 200px;
+    width: 250px;
     padding-top: 20px;
-    padding-inline-start: 10px;
+    padding-inline-start: 20px;
 }
 
 .container {
@@ -69,7 +69,7 @@ header .logo {
 
 .nav-links {
     list-style: none;
-    padding-inline-start: 10px;
+    padding-inline-start: 20px;
 }
 
 .nav-links ul {
@@ -422,6 +422,10 @@ section.times output {
     padding: 0 10px;
 }
 
+.history p {
+    padding: 0 20px;
+}
+
 /* Favorites */
 
 .favorites-section {
@@ -462,7 +466,7 @@ h3 {
     color: #333;
 }
 
-p {
+.favorite-item p {
     color: #555;
     font-size: 0.9rem;
     margin: 10px 0;

@@ -45,6 +45,12 @@
     background-color: var(--darker-main-color);
 }
 
+.nearby-item .distance {
+    font-size: 0.9em;
+    color: var(--font-color);
+    margin-top: 5px;
+}
+
 .map-section {
     height: 400px;
     margin-top: 20px;
