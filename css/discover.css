@@ -95,8 +95,8 @@ p {
 }
 
 .gallery-image {
-    width: 100%;
-    height: auto;
+    width: 155px;
+    height: 112px;
     border-radius: 5px;
     object-fit: cover;
     transition: transform 0.2s;

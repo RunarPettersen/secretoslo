@@ -14,7 +14,7 @@ const calculateDistance = (lat1, lon1, lat2, lon2) => {
     return R * 2 * Math.asin(Math.sqrt(a));
 };
 
-// Function to find and display the eight closest places to the user's location
+// Function to find and display nearby places and add all places to the map
 const showNearbyPlaces = async () => {
     try {
         const response = await fetch('../json/places.json');
@@ -34,13 +34,12 @@ const showNearbyPlaces = async () => {
             const userLongitude = position.coords.longitude;
 
             // Calculate distance to each place and sort by closest
-            const nearbyPlaces = places
-                .map(place => {
-                    place.distance = calculateDistance(userLatitude, userLongitude, place.latitude, place.longitude);
-                    return place;
-                })
-                .sort((a, b) => a.distance - b.distance)
-                .slice(0, 8); // Show the eight closest places
+            places.forEach(place => {
+                place.distance = calculateDistance(userLatitude, userLongitude, place.latitude, place.longitude);
+            });
+
+            // Sort places by distance and display the eight closest
+            const nearbyPlaces = places.sort((a, b) => a.distance - b.distance).slice(0, 8);
 
             // Display nearby places in a grid
             const nearbyList = document.getElementById('nearbyList');
@@ -49,12 +48,12 @@ const showNearbyPlaces = async () => {
                     <img src="../${place.image}" alt="${place.title}" class="nearby-image">
                     <h3>${place.title}</h3>
                     <p class="description">${place.introduction}</p>
-                    <p class="distance">${place.distance.toFixed(2)} km away</p> <!-- Display distance -->
+                    <p class="distance">${place.distance.toFixed(2)} km away</p>
                     <button onclick="window.location.href='../discover/detail.html?id=${place.id}'">View Details</button>
                 </div>
             `).join('');
 
-            // Initialize the map
+            // Initialize the map centered on the user's location
             const map = L.map('map').setView([userLatitude, userLongitude], 13);
 
             // Add OpenStreetMap tiles
@@ -68,10 +67,14 @@ const showNearbyPlaces = async () => {
                 .bindPopup('You are here')
                 .openPopup();
 
-            // Add markers for each nearby place
-            nearbyPlaces.forEach(place => {
+            // Add markers for all places and make the titles clickable
+            places.forEach(place => {
                 L.marker([place.latitude, place.longitude]).addTo(map)
-                    .bindPopup(`<b>${place.title}</b><br>${place.introduction}<br>${place.distance.toFixed(2)} km away`);
+                    .bindPopup(`
+                        <b><a href="../discover/detail.html?id=${place.id}" target="_blank" rel="noopener noreferrer">${place.title}</a></b><br>
+                        ${place.introduction}<br>
+                        ${place.distance.toFixed(2)} km away
+                    `);
             });
 
         }, error => {
