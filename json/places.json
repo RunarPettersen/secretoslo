@@ -204,7 +204,7 @@
         "category": "attraction",
         "image": "images/ekeberg/ekeberg01.jpg",
         "galleryPath": "images/ekeberg",
-        "galleryImages": ["ekeberg01.jpg", "ekeberg02.jpg", "ekeberg03.jpg", "ekeberg04.jpg", "ekeberg05.jpg", "ekeberg06.jpg", "ekeberg07.jpg"],
+        "galleryImages": ["ekeberg01.jpg", "ekeberg02.jpg", "ekeberg03.jpg", "ekeberg04.jpg", "ekeberg05.jpg", "ekeberg06.jpg", "ekeberg07.jpg", "ekeberg08.jpg", "ekeberg09.jpg", "ekeberg10.jpg", "ekeberg11.jpg"],
         "tags": ["sculpture", "art", "park", "outdoors"],
         "homepage": "https://www.ekebergparken.com/",
         "latitude": 59.898328,
