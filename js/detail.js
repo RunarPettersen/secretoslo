@@ -30,9 +30,21 @@ const fetchDestinationDetails = async () => {
     }
 };
 
+// Function to convert secret level number to stars
+const getStars = (level) => {
+    return '★'.repeat(level);
+};
+
 const displayDestinationDetails = (destination) => {
     const detailSection = document.getElementById('destinationDetails');
     const homepageLink = destination.homepage ? `<p><strong>Homepage:</strong> <a href="${destination.homepage}" target="_blank" rel="noopener noreferrer">${destination.homepage}</a></p>` : '';
+
+    // Convert secret level to an integer
+    const secretLevel = parseInt(destination.secretLevel, 10);
+    const secretLevelStars = getStars(secretLevel);
+
+    // Determine the CSS class for the stars
+    const starClass = secretLevel === 10 ? 'yellow-stars' : 'default-stars';
 
     detailSection.innerHTML = `
         <img src="../${destination.image}" alt="${destination.title}" class="destination-image">
@@ -40,8 +52,9 @@ const displayDestinationDetails = (destination) => {
         <div class="description">${destination.description}</div>
         <p><strong>Location:</strong> ${destination.where}</p>
         <p><strong>Address:</strong> ${destination.address}</p>
-        <p><strong>Category:</strong> ${destination.category}</p>
+        <p><strong>Category:</strong> ${destination.category.join(', ')}</p>
         <p><strong>Tags:</strong> ${destination.tags.join(', ')}</p>
+        <p><strong>Secret Level:</strong> <span class="${starClass}">${secretLevelStars}</span></p>
         ${homepageLink}
         <button id="favorite-btn" class="favorite-btn">
             <i class="${isFavorite(destination.id) ? 'fas fa-heart' : 'far fa-heart'}"></i>

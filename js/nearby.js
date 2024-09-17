@@ -14,6 +14,38 @@ const calculateDistance = (lat1, lon1, lat2, lon2) => {
     return R * 2 * Math.asin(Math.sqrt(a));
 };
 
+// Function to toggle fullscreen mode
+const toggleFullscreen = (element) => {
+    if (!document.fullscreenElement) {
+        element.requestFullscreen().catch(err => {
+            console.error(`Error attempting to enable fullscreen mode: ${err.message}`);
+        });
+    } else {
+        document.exitFullscreen();
+    }
+};
+
+// Function to create a fullscreen button on the map
+const createFullscreenButton = (mapContainer) => {
+    const fullscreenBtn = document.createElement('button');
+    fullscreenBtn.className = 'fullscreen-btn';
+    fullscreenBtn.innerHTML = '🗖'; // Unicode for fullscreen icon
+
+    fullscreenBtn.style.position = 'absolute';
+    fullscreenBtn.style.top = '10px';
+    fullscreenBtn.style.right = '10px';
+    fullscreenBtn.style.padding = '10px';
+    fullscreenBtn.style.backgroundColor = 'white';
+    fullscreenBtn.style.border = 'none';
+    fullscreenBtn.style.borderRadius = '4px';
+    fullscreenBtn.style.cursor = 'pointer';
+    fullscreenBtn.style.boxShadow = '0 2px 6px rgba(0,0,0,0.3)';
+
+    fullscreenBtn.addEventListener('click', () => toggleFullscreen(mapContainer));
+
+    mapContainer.appendChild(fullscreenBtn);
+};
+
 // Function to find and display nearby places and add all places to the map
 const showNearbyPlaces = async () => {
     try {
@@ -54,7 +86,8 @@ const showNearbyPlaces = async () => {
             `).join('');
 
             // Initialize the map centered on the user's location
-            const map = L.map('map').setView([userLatitude, userLongitude], 13);
+            const mapContainer = document.getElementById('map');
+            const map = L.map(mapContainer).setView([userLatitude, userLongitude], 13);
 
             // Add OpenStreetMap tiles
             L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
@@ -76,6 +109,9 @@ const showNearbyPlaces = async () => {
                         ${place.distance.toFixed(2)} km away
                     `);
             });
+
+            // Create a fullscreen button on the map
+            createFullscreenButton(mapContainer);
 
         }, error => {
             document.getElementById('nearbyList').innerHTML = `<p>Unable to retrieve your location. Error: ${error.message}</p>`;

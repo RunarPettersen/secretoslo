@@ -52,9 +52,19 @@ p {
     background-color: var(--darker-main-color)
 }
 
+.filter {
+    padding-top: 10px;
+    display: flex;
+}
+
 .filter-by-category {
     color: var(--font-color);
-    padding-inline-start: 10px;
+    padding-inline-start: 20px;
+}
+
+.filter-by-sort {
+    color: var(--font-color);
+    padding-inline-start: 20px;
 }
 
 /* Details */
@@ -84,6 +94,14 @@ p {
 
 .favorite-btn:hover {
     background-color: var(--darker-main-color);
+}
+
+.yellow-stars {
+    color: gold; /* Color for secret level 10 */
+}
+
+.default-stars {
+    color: gray; /* Default color for secret levels other than 10 */
 }
 
 .gallery {
@@ -245,5 +263,9 @@ p {
 
     #nearbyList {
         grid-template-columns: 1fr;
+    }
+
+    .filter {
+        flex-direction: column-reverse;
     }
 }

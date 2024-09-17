@@ -16,7 +16,7 @@
 }
 
 body {
-    background: linear-gradient(45deg, white, #aa0000, white, #aa0000, white);
+    background: linear-gradient(45deg, black, #aa0000, black, #aa0000, black);
     color: var(--font-color);
     font-family: "Poppins", sans-serif;
     font-weight: 400;
@@ -122,11 +122,6 @@ main h2 {
     translate: 0;
 }
 
-.eibon-logo img {
-	width: 200px;
-	margin-top: 30px;
-}
-
 .visually-hidden { 
     border: 0;
     padding: 0;
@@ -168,6 +163,7 @@ header .logo {
 .container {
     width: 100%;
     max-width: 1000px;
+    height: 174px;
     display: flex;
     flex-direction: column;
 }
@@ -476,7 +472,7 @@ section.times output {
     top: 10px;
     right: 10px;
     padding: 10px 20px;
-    background-color: #ff4f4f;
+    background-color: var(--main-color);
     color: white;
     border-radius: 4px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
@@ -484,7 +480,7 @@ section.times output {
 }
 
 .message.error {
-    background-color: #ff4f4f;
+    background-color: var(--darker-main-color);
 }
 
 .notification-container {
@@ -496,7 +492,7 @@ section.times output {
 }
 
 .notification {
-    background-color: #4caf50; /* Green background */
+    background-color: var(--main-color);
     color: white;
     padding: 10px 20px;
     margin-bottom: 10px;
@@ -505,10 +501,12 @@ section.times output {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    border: 2px solid #fff;
+
 }
 
 .notification.error {
-    background-color: #f44336; /* Red background for errors */
+    background-color: var(--darker-main-color);
 }
 
 .notification .close-btn {
@@ -606,7 +604,7 @@ h3 {
 
 .remove-btn {
     padding: 8px 16px;
-    background-color: #dc3545; /* Red color for remove action */
+    background-color: var(--darker-main-color);
     color: white;
     border: none;
     border-radius: 4px;
@@ -616,7 +614,7 @@ h3 {
 }
 
 .remove-btn:hover {
-    background-color: #c82333; /* Darker red on hover */
+    background-color: var(--main-color);
 }
 
 /* Loader */
@@ -701,6 +699,10 @@ footer {
     .favorites-section {
         grid-template-columns: 1fr;
         width: unset;
+    }
+
+    .container {
+        height: 117px;
     }
 }
 

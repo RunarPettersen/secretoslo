@@ -1,6 +1,7 @@
 import { fetchWeatherData, displayWeather } from './utils/weather.js';
 import { fetchPlaces } from './utils/places.js';
 import { setupLoader } from './utils/loader.js';
+import { displayMessage } from './utils/displayMessage.js'; // Import the displayMessage function
 
 setupLoader();
 

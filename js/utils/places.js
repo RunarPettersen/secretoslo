@@ -1,3 +1,5 @@
+import { displayMessage } from './displayMessage.js'; // Import the displayMessage function
+
 export const fetchPlaces = async () => {
     try {
         const response = await fetch('json/places.json'); // Update the path if necessary
@@ -16,7 +18,13 @@ export const fetchPlaces = async () => {
 export const displayPlaces = (places, category, sectionSelector) => {
     const placesSection = document.querySelector(sectionSelector);
     let displayedCount = 3; // Number of places initially displayed
-    const filteredPlaces = places.filter(place => place.category.toLowerCase() === category.toLowerCase());
+
+    // Filter places where the selected category matches any category in the array
+    const filteredPlaces = places.filter(place => {
+        // Ensure category is an array and check if it includes the selected category
+        const categories = Array.isArray(place.category) ? place.category : [place.category];
+        return categories.map(cat => cat.toLowerCase()).includes(category.toLowerCase());
+    });
 
     // Function to render places based on the current displayed count
     const renderPlaces = (count) => {

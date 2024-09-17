@@ -50,16 +50,28 @@
         </div>
     </header>
     <main>
-        <section class="category-filter"></section>
-            <label for="categorySelect" class="filter-by-category">Filter by Category:</label>
-            <select id="categorySelect">
-                <option value="all">All</option>
-                <option value="restaurant">Restaurant</option>
-                <option value="monument">Monument</option>
-                <option value="museum">Museum</option>
-                <!-- Add more categories as needed -->
-            </select>
-        </section>
+        <div class="filter">
+            <section class="category-filter">
+                <label for="categorySelect" class="filter-by-category">Filter by Category:</label>
+                <select id="categorySelect">
+                    <option value="all">All</option>
+                    <option value="restaurant">Restaurant</option>
+                    <option value="monument">Monument</option>
+                    <option value="museum">Museum</option>
+                    <option value="park">Parks</option>
+                    <!-- Add more categories as needed -->
+                </select>
+            </section>
+            <section class="sort-filter">
+                <label for="sortOrderSelect" class="filter-by-sort">Sort by:</label>
+                <select id="sortOrderSelect">
+                    <option value="newest" selected>Newest</option>
+                    <option value="oldest">Oldest</option>
+                    <option value="highest-secret">Highest Secret Level</option>
+                    <option value="lowest-secret">Lowest Secret Level</option>
+                </select>
+            </section>
+        </div>
         <section class="destinations-grid" id="destinationsGrid">
             <!-- Destinations will be dynamically inserted here -->
         </section>

@@ -9,7 +9,11 @@ const fetchDestinations = async () => {
             throw new Error('Failed to fetch destinations data.');
         }
         const destinations = await response.json();
-        // Display all destinations initially
+
+        // Sort destinations by date (newest first) when the page loads
+        destinations.sort((a, b) => new Date(b.date) - new Date(a.date));
+
+        // Display sorted destinations initially
         displayDestinations(destinations);
 
         // Set up event listener for category filter
@@ -18,11 +22,36 @@ const fetchDestinations = async () => {
             const selectedCategory = categorySelect.value;
             filterDestinations(destinations, selectedCategory);
         });
+
+        // Set up event listener for sort order filter
+        const sortOrderSelect = document.getElementById('sortOrderSelect');
+        sortOrderSelect.addEventListener('change', () => {
+            const selectedOrder = sortOrderSelect.value;
+            sortDestinations(destinations, selectedOrder);
+        });
+
     } catch (error) {
         console.error('Error fetching destinations:', error);
     }
 };
 
+// Sort and display destinations based on selected order
+const sortDestinations = (destinations, order) => {
+    if (order === 'newest') {
+        destinations.sort((a, b) => new Date(b.date) - new Date(a.date));
+    } else if (order === 'oldest') {
+        destinations.sort((a, b) => new Date(a.date) - new Date(b.date));
+    } else if (order === 'highest-secret') {
+        // Sort by highest secret level
+        destinations.sort((a, b) => parseInt(b.secretLevel, 10) - parseInt(a.secretLevel, 10));
+    } else if (order === 'lowest-secret') {
+        // Sort by lowest secret level
+        destinations.sort((a, b) => parseInt(a.secretLevel, 10) - parseInt(b.secretLevel, 10));
+    }
+    displayDestinations(destinations);
+};
+
+// Display destinations function
 const displayDestinations = (destinations) => {
     const destinationsGrid = document.getElementById('destinationsGrid');
     destinationsGrid.innerHTML = '';
@@ -50,14 +79,16 @@ const displayDestinations = (destinations) => {
     });
 };
 
-// Filter destinations by category
-const filterDestinations = (destinations, category) => {
-    if (category === 'all') {
+// Filter destinations by a single selected category
+const filterDestinations = (destinations, selectedCategory) => {
+    if (selectedCategory === 'all') {
         // Show all destinations if 'all' is selected
         displayDestinations(destinations);
     } else {
-        // Filter destinations by the selected category
-        const filteredDestinations = destinations.filter(destination => destination.category.toLowerCase() === category.toLowerCase());
+        // Filter destinations where the selected category is one of the categories listed in the destination's category array
+        const filteredDestinations = destinations.filter(destination =>
+            destination.category.map(cat => cat.toLowerCase()).includes(selectedCategory.toLowerCase())
+        );
         displayDestinations(filteredDestinations);
     }
 };
