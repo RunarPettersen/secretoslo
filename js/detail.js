@@ -30,21 +30,22 @@ const fetchDestinationDetails = async () => {
     }
 };
 
-// Function to convert secret level number to stars
+// Function to convert secret level number to stars (scaled to 1-10 range)
 const getStars = (level) => {
-    return '★'.repeat(level);
+    const stars = Math.round(level / 10); // Scale level 1-100 down to 1-10
+    return '★'.repeat(stars);
 };
 
 const displayDestinationDetails = (destination) => {
     const detailSection = document.getElementById('destinationDetails');
     const homepageLink = destination.homepage ? `<p><strong>Homepage:</strong> <a href="${destination.homepage}" target="_blank" rel="noopener noreferrer">${destination.homepage}</a></p>` : '';
 
-    // Convert secret level to an integer
+    // Convert secret level to an integer and calculate stars
     const secretLevel = parseInt(destination.secretLevel, 10);
     const secretLevelStars = getStars(secretLevel);
 
-    // Determine the CSS class for the stars
-    const starClass = secretLevel === 10 ? 'yellow-stars' : 'default-stars';
+    // Determine the CSS class for the stars (optional, remove if not needed)
+    const starClass = secretLevel === 100 ? 'yellow-stars' : 'default-stars';
 
     detailSection.innerHTML = `
         <img src="../${destination.image}" alt="${destination.title}" class="destination-image">

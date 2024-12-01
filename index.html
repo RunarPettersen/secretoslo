@@ -3,12 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Discover the hidden gems of Oslo with Secret Oslo. Explore unique experiences, secret spots, and the vibrant culture of Norway's capital.">
+    <meta name="robots" content="index, follow">
     <title>Secret Oslo - Home</title>
     <link rel="icon" type="image/x-icon" href="images/logo/secretosloicon96x96.png">
     <link rel="icon" type="image/x-icon" href="images/logo/secretosloicon32x32.png">
     <link rel="icon" type="image/x-icon" href="images/logo/secretosloicon16x16.png">
     <link rel="stylesheet" href="css/style.css">
     <script src="https://moment.github.io/luxon/global/luxon.min.js"></script>
+    <script src="js/analytics.js"></script>
 </head>
 <body>
     <header>
@@ -81,13 +84,34 @@
         </div>
     </main>
 
-    <footer>Copyright 2024</footer>
+    <footer>
+        <div class="footer-container">
+            <img src="../images/logo/secretosloicon96x96.png">
+            <div class="footer-about">
+                <ul class="footer-links">
+                    <li>ABOUT</li>
+                    <li><a href="about/about.html">About Us</a></li>
+                    <li><a href="about/privacy-policy.html">Privacy Policy</a></li>
+                    <li><a href="about/terms-and-conditions.html">Terms and Conditions</a></li>
+                    <li><a href="about/contact.html">Contact Us</a></li>
+                </ul>
+            </div>
+            <p>&copy; 2024 Secret Oslo. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <div id="cookieConsent">
+        <p>This website uses cookies to ensure you get the best experience. 
+           <a href="about/privacy-policy.html">Learn more</a>
+        </p>
+        <button id="acceptCookies">Accept</button>
+    </div>
 
     <div class="loader"></div>
 
     <script type="module" src="js/script.js"></script>
     <script src="js/utils/clock.js"></script>
-    <script src="js/utils/search.js"></script>
+    <script type="module" src="js/utils/search.js"></script>
     <script src="js/utils/highlightActiveLink.js"></script>
     <script src="js/utils/menuToggle.js"></script>
 </body>

@@ -1,13 +1,15 @@
-<html lang="en"></html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Secret Oslo - Destination Details</title>
+    <meta name="description" content="About Secret Oslo.">
+    <meta name="robots" content="index, follow">
+    <title>Secret Oslo - About Us</title>
     <link rel="icon" type="image/x-icon" href="../images/logo/secretosloicon96x96.png">
     <link rel="icon" type="image/x-icon" href="../images/logo/secretosloicon32x32.png">
     <link rel="icon" type="image/x-icon" href="../images/logo/secretosloicon16x16.png">
-    <link rel="stylesheet" href="../css/discover.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="../css/style.css">
     <script src="../js/analytics.js"></script>
 </head>
 <body>
@@ -15,8 +17,6 @@
         <div class="container">
             <nav class="nav-bar">
                 <a href="../"><img class="logo" src="../images/logo/secretoslologo.png" alt="Secret Oslo Logo"></a>
-                
-                <!-- Search Bar for Desktop -->
                 <form id="searchForm" class="search-form" action="../search-results.html" method="get">
                     <input type="text" id="searchInput" class="search-input" name="query" placeholder="Search...">
                     <button type="submit" class="search-button">Search</button>
@@ -26,17 +26,13 @@
                     <span class="visually-hidden">Hamburger Menu</span>
                 </label>
             </nav>
-    
-            <!-- Desktop Menu Links -->
             <ul class="nav-links">
                 <li><a href="../">Home</a></li>
                 <li><a href="../history/">History</a></li>
-                <li><a href="./">Discover</a></li>
-                <li><a href="favorites.html">Favorites</a></li>
+                <li><a href="../discover/">Discover</a></li>
+                <li><a href="../discover/favorites.html">Favorites</a></li>
                 <li><a href="../nearby/">Nearby</a></li>
             </ul>
-    
-            <!-- Mobile Menu -->
             <div class="mobile-menu" id="mobileMenu">
                 <button class="close-menu" id="closeMenu">X</button>
                 <form id="mobileSearchForm" class="mobile-search-form" action="../search-results.html" method="get">
@@ -46,32 +42,30 @@
                 <ul class="mobile-nav-links">
                     <li><a href="../">Home</a></li>
                     <li><a href="../history/">History</a></li>
-                    <li><a href="./">Discover</a></li>
-                    <li><a href="favorites.html">Favorites</a></li>
+                    <li><a href="../discover/">Discover</a></li>
+                    <li><a href="../discover/favorites.html">Favorites</a></li>
                     <li><a href="../nearby/">Nearby</a></li>
                 </ul>
             </div>
         </div>
     </header>
-    <main>
-        <h1 id="detail-title">Destination Details</h1>
-        <section class="destination-details" id="destinationDetails">
-        </section>
 
-        <section id="nearby-places" class="nearby-places">
-            <h2>Nearby Places From Here:</h2>
-            <div id="nearbyList">Loading nearby places...</div>
+    <main>
+        <section class="history">
+            <h1>About Us</h1>
+            <p>At SecretOslo.no, we are passionate about uncovering the hidden gems of Oslo, Norway's vibrant capital. Our mission is to guide locals and visitors alike to the city's lesser-known attractions, historical landmarks, and unique experiences that go beyond the typical tourist spots.</p>
+            <p>Whether you're looking for secluded parks, offbeat art installations, hidden cafes, or cultural treasures, Secret Oslo is your ultimate guide. We believe in showcasing the diversity of Oslo’s history, culture, and natural beauty in a way that allows everyone to experience the city like never before.</p>
+            <h2>Why Secret Oslo?</h2>
+            <ul>
+                <li>Discover Hidden Gems: We go beyond the obvious, revealing places and experiences that are often overlooked.</li>
+                <li>Curated by Locals: Our recommendations come from people who live and breathe Oslo, ensuring you get the best insider tips.</li>
+                <li>Explore Like a Local: Whether you're here for a day or a lifetime, our goal is to help you discover the soul of Oslo.</li>
+            </ul>
+            <h2>Our Team</h2>
+            <p>SecretOslo.no is curated by a team of Oslo enthusiasts who have a deep love for the city’s history, culture, and hidden wonders. We are committed to exploring every nook and cranny of Oslo to bring you the best experiences it has to offer.</p>
+            <p>Thank you for joining us on this journey through Oslo's secret spots. We hope to inspire your next adventure!</p>
         </section>
     </main>
-
-    <div id="notification-container" class="notification-container"></div>
-
-    <div id="lightbox" class="lightbox">
-        <span class="close">&times;</span>
-        <img src="" alt="Enlarged Gallery Image">
-        <button id="prev-btn" class="nav-btn prev-btn">&lt;</button>
-        <button id="next-btn" class="nav-btn next-btn">&gt;</button>
-    </div>
 
     <footer>
         <div class="footer-container">
@@ -79,27 +73,19 @@
             <div class="footer-about">
                 <ul class="footer-links">
                     <li>ABOUT</li>
-                    <li><a href="../about/about.html">About Us</a></li>
-                    <li><a href="../about/privacy-policy.html">Privacy Policy</a></li>
-                    <li><a href="../about/terms-and-conditions.html">Terms and Conditions</a></li>
-                    <li><a href="../about/contact.html">Contact Us</a></li>
+                    <li><a href="./about.html">About Us</a></li>
+                    <li><a href="./privacy-policy.html">Privacy Policy</a></li>
+                    <li><a href="./terms-and-conditions.html">Terms and Conditions</a></li>
+                    <li><a href="./contact.html">Contact Us</a></li>
                 </ul>
             </div>
             <p>&copy; 2024 Secret Oslo. All rights reserved.</p>
         </div>
     </footer>
 
-    <div id="cookieConsent">
-        <p>This website uses cookies to ensure you get the best experience. 
-           <a href="about/privacy-policy.html">Learn more</a>
-        </p>
-        <button id="acceptCookies">Accept</button>
-    </div>
-
-    <div class="loader"></div>
-    
-    <script type="module" src="../js/detail.js"></script>
-    <script type="module" src="../js/utils/search.js"></script>
+    <script src="../js/utils/search.js"></script>
+    <script src="../js/utils/highlightActiveLink.js"></script>
     <script src="../js/utils/menuToggle.js"></script>
+
 </body>
 </html>

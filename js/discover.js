@@ -42,10 +42,10 @@ const sortDestinations = (destinations, order) => {
     } else if (order === 'oldest') {
         destinations.sort((a, b) => new Date(a.date) - new Date(b.date));
     } else if (order === 'highest-secret') {
-        // Sort by highest secret level
+        // Sort by highest secret level (decimal base)
         destinations.sort((a, b) => parseInt(b.secretLevel, 10) - parseInt(a.secretLevel, 10));
     } else if (order === 'lowest-secret') {
-        // Sort by lowest secret level
+        // Sort by lowest secret level (decimal base)
         destinations.sort((a, b) => parseInt(a.secretLevel, 10) - parseInt(b.secretLevel, 10));
     }
     displayDestinations(destinations);
