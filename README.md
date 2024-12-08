@@ -1,6 +1,6 @@
 # Secret Oslo
 
-![image](https://raw.githubusercontent.com/RunarPettersen/rainy-days/refs/heads/main/image/rainydays-home.jpg)
+![image](https://raw.githubusercontent.com/RunarPettersen/secretoslo/refs/heads/main/images/secretoslo-home.jpg)
 
 Secret Oslo is a site I created to experiment further with what I learned during the JavaScript module at Noroff.
 
